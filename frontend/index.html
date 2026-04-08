@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="tradeMonitorApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Trade Monitor Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div class="container">
+  <div ng-view></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.min.js"></script>
+
+<script src="app/app.module.js"></script>
+<script src="app/routes.js"></script>
+<script src="app/constants.js"></script>
+<script src="app/services/trade-service.js"></script>
+<script src="app/controllers/dashboard-controller.js"></script>
+</body>
+</html>

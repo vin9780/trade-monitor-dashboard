@@ -1,0 +1,42 @@
+<h2>Trade Monitor Dashboard</h2>
+
+<div class="row">
+  <div class="col-sm-3"><div class="panel panel-primary"><div class="panel-heading">Total</div><div class="panel-body">{{summary.total}}</div></div></div>
+  <div class="col-sm-3"><div class="panel panel-warning"><div class="panel-heading">Pending</div><div class="panel-body">{{summary.pending}}</div></div></div>
+  <div class="col-sm-3"><div class="panel panel-success"><div class="panel-heading">Settled</div><div class="panel-body">{{summary.settled}}</div></div></div>
+  <div class="col-sm-3"><div class="panel panel-danger"><div class="panel-heading">Cancelled</div><div class="panel-body">{{summary.cancelled}}</div></div></div>
+</div>
+
+<hr>
+
+<select ng-model="filters.status" ng-options="s for s in statuses">
+  <option value="">All Status</option>
+</select>
+
+<select ng-model="filters.product" ng-options="p for p in products">
+  <option value="">All Products</option>
+</select>
+
+<button ng-click="applyFilters()">Apply</button>
+<button ng-click="resetFilters()">Reset</button>
+
+<hr>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Trader</th>
+      <th>Product</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="t in trades">
+      <td>{{t.id}}</td>
+      <td>{{t.trader}}</td>
+      <td>{{t.product}}</td>
+      <td>{{t.status}}</td>
+  </tr>
+  </tbody>
+</table>

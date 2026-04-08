@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# Node
+frontend/node_modules/
+
+# Java / Maven
+backend/target/
+
+# Logs
+*.log

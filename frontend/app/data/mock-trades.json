@@ -1,0 +1,5 @@
+[
+  {"tradeId": "TRD1", "traderName": "Alice", "product": "FX Forward", "status": "NEW"},
+  {"tradeId": "TRD2", "traderName": "Bob", "product": "Swap", "status": "PENDING"},
+  {"tradeId": "TRD3", "traderName": "Carol", "product": "Bond", "status": "SETTLED"}
+]
