@@ -49,9 +49,6 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install frontend dependencies
-        run: npm install
-
       - name: Verify frontend files exist
         run: |
           test -f index.html
