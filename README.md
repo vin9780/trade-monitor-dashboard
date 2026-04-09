@@ -35,6 +35,36 @@ A full-stack Trade Monitoring Dashboard built using AngularJS and Spring Boot. T
 - GitHub Actions (CI/CD)
 - Maven
 
----
-
 ## 📂 Project Structure
+trade-monitor-dashboard/
+├── backend/ # Spring Boot application
+├── frontend/ # AngularJS application
+└── README.md
+
+## ▶️ How to Run Locally
+
+### 🔹 Backend (Spring Boot)
+
+cd backend
+mvn spring-boot:run
+
+Backend runs on:
+http://localhost:8080/api/trades
+
+🔹 Frontend (AngularJS)  
+npx http-server -c-1
+
+Open in browser:
+http://127.0.0.1:8082/#!/dashboard
+
+🔄 CI/CD (GitHub Actions)
+
+This project uses GitHub Actions for continuous integration.
+
+Pipeline includes:
+Backend build and test using Maven
+Frontend structure validation
+Runs automatically on:
+Push to main
+Feature branches
+Pull requests
