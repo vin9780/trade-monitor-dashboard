@@ -1,42 +1,97 @@
-<h2>Trade Monitor Dashboard</h2>
+<div class="dashboard-page">
+    <div class="dashboard-header">
+        <div>
+            <h1 class="dashboard-title">Trade Monitor Dashboard</h1>
+            <p class="dashboard-subtitle">
+                Monitor trade activity, status distribution, and product-level filtering.
+            </p>
+        </div>
+        <div class="dashboard-header-badge">Live View</div>
+    </div>
 
-<div class="row">
-  <div class="col-sm-3"><div class="panel panel-primary"><div class="panel-heading">Total</div><div class="panel-body">{{summary.total}}</div></div></div>
-  <div class="col-sm-3"><div class="panel panel-warning"><div class="panel-heading">Pending</div><div class="panel-body">{{summary.pending}}</div></div></div>
-  <div class="col-sm-3"><div class="panel panel-success"><div class="panel-heading">Settled</div><div class="panel-body">{{summary.settled}}</div></div></div>
-  <div class="col-sm-3"><div class="panel panel-danger"><div class="panel-heading">Cancelled</div><div class="panel-body">{{summary.cancelled}}</div></div></div>
+    <div class="summary-grid">
+        <div class="summary-card total-card">
+            <div class="summary-label">Total Trades</div>
+            <div class="summary-value">{{summary.total}}</div>
+        </div>
+
+        <div class="summary-card pending-card">
+            <div class="summary-label">Pending</div>
+            <div class="summary-value">{{summary.pending}}</div>
+        </div>
+
+        <div class="summary-card settled-card">
+            <div class="summary-label">Settled</div>
+            <div class="summary-value">{{summary.settled}}</div>
+        </div>
+
+        <div class="summary-card cancelled-card">
+            <div class="summary-label">Cancelled</div>
+            <div class="summary-value">{{summary.cancelled}}</div>
+        </div>
+    </div>
+
+    <div class="filter-panel">
+        <div class="filter-panel-header">
+            <h3>Filters</h3>
+            <span>Refine trades by status and product</span>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <label class="filter-label">Status</label>
+                <select class="form-control custom-control" ng-model="filters.status" ng-options="s for s in statuses">
+                    <option value="">All Status</option>
+                </select>
+            </div>
+
+            <div class="col-sm-4">
+                <label class="filter-label">Product</label>
+                <select class="form-control custom-control" ng-model="filters.product" ng-options="p for p in products">
+                    <option value="">All Products</option>
+                </select>
+            </div>
+
+            <div class="col-sm-4 action-col">
+                <button class="btn action-btn primary-btn" ng-click="applyFilters()">Apply Filters</button>
+                <button class="btn action-btn secondary-btn" ng-click="resetFilters()">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-panel">
+        <div class="table-panel-header">
+            <h3>Trades</h3>
+            <span>{{trades.length}} records</span>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table modern-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Trader</th>
+                    <th>Product</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="t in trades">
+                    <td class="trade-id">{{t.id}}</td>
+                    <td>{{t.trader}}</td>
+                    <td>{{t.product}}</td>
+                    <td>
+                        <span class="status-pill status-new" ng-if="t.status === 'NEW'">{{t.status}}</span>
+                        <span class="status-pill status-pending" ng-if="t.status === 'PENDING'">{{t.status}}</span>
+                        <span class="status-pill status-settled" ng-if="t.status === 'SETTLED'">{{t.status}}</span>
+                        <span class="status-pill status-cancelled" ng-if="t.status === 'CANCELLED'">{{t.status}}</span>
+                    </td>
+                </tr>
+                <tr ng-if="trades.length === 0">
+                    <td colspan="4" class="empty-state">No trades found for the selected filters.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-
-<hr>
-
-<select ng-model="filters.status" ng-options="s for s in statuses">
-  <option value="">All Status</option>
-</select>
-
-<select ng-model="filters.product" ng-options="p for p in products">
-  <option value="">All Products</option>
-</select>
-
-<button ng-click="applyFilters()">Apply</button>
-<button ng-click="resetFilters()">Reset</button>
-
-<hr>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Trader</th>
-      <th>Product</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr ng-repeat="t in trades">
-      <td>{{t.id}}</td>
-      <td>{{t.trader}}</td>
-      <td>{{t.product}}</td>
-      <td>{{t.status}}</td>
-  </tr>
-  </tbody>
-</table>
