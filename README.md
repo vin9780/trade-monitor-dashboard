@@ -39,10 +39,9 @@ A full-stack Trade Monitoring Dashboard built using AngularJS and Spring Boot. T
 - Maven
 
 ## 📂 Project Structure
-trade-monitor-dashboard
-├── backend/ # Spring Boot application
-├── frontend/ # AngularJS application
-└── README.md
+trade-monitor-dashboard/backend/ # Spring Boot application
+trade-monitor-dashboard/frontend/ # AngularJS application
+trade-monitor-dashboard/README.md
 
 ## ▶️ How to Run Locally
 
