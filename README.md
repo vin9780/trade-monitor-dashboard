@@ -1,5 +1,7 @@
 # Trade Monitor Dashboard
 
+ Inspired by real-time risk monitoring systems built at TD Securities. Simplified for public portfolio purposes.
+
 A full-stack Trade Monitoring Dashboard built using AngularJS and Spring Boot. This application allows users to view, filter, and analyze trade data in real-time through a clean and interactive UI.
 
 <img width="1440" height="828" alt="image" src="https://github.com/user-attachments/assets/b809561e-e6cb-47b4-bd2c-b7dc3d182a02" />
